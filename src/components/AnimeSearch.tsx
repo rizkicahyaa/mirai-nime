@@ -28,7 +28,7 @@ const AnimeSearch: React.FC = () => {
 
     return (
         <div className="p-6 max-w-4xl mx-auto">
-            <h1 className="text-2xl font-bold mb-4 text-center text-blue-600">🎌 Anime Search (Jikan API)</h1>
+            <h1 className="text-2xl font-bold mb-4 text-center text-blue-600">Anime Search</h1>
 
             <div className="flex justify-center mb-6">
                 <input type="text" placeholder="Cari anime..." className="border border-gray-300 rounded-l-lg p-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-400" value={query} onChange={(e) => setQuery(e.target.value)} onKeyDown={(e) => e.key === "Enter" && searchAnime()} />
@@ -38,7 +38,7 @@ const AnimeSearch: React.FC = () => {
             </div>
 
             {loading ? (
-                <p className="text-center text-gray-500">🔍 Sedang mencari...</p>
+                <p className="text-center text-gray-500">Sedang mencari...</p>
             ) : (
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                     {animeList.map((anime) => (
