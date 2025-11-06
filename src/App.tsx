@@ -1,3 +1,4 @@
+import "./App.css";
 import AnimeSearch from "./components/AnimeSearch";
 
 function App() {
