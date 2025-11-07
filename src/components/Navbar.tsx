@@ -20,6 +20,11 @@ const Navbar: React.FC = () => {
                             Search
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/genres" className={`hover:text-blue-500 ${pathname === "/genres" ? "text-blue-600 font-semibold" : ""}`}>
+                            Genre
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </nav>

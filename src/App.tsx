@@ -2,6 +2,8 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Genres from "./pages/Genres";
+import GenreAnime from "./pages/GenreAnime";
 import Search from "./pages/Search";
 import Footer from "./components/Footer";
 
@@ -15,6 +17,8 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/search" element={<Search />} />
+                        <Route path="/genres" element={<Genres />} />
+                        <Route path="/genre/:id" element={<GenreAnime />} />
                     </Routes>
                 </main>
 
