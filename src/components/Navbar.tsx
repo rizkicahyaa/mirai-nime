@@ -1,25 +1,24 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar: React.FC = () => {
+    const { pathname } = useLocation();
+
     return (
         <nav className="bg-white shadow-md">
             <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
                 <h1 className="text-2xl font-bold text-blue-600">MiraiNime</h1>
-                <ul className="hidden md:flex space-x-6 text-gray-700 font-medium">
+
+                <ul className="flex space-x-6 text-gray-700 font-medium">
                     <li>
-                        <a href="#home" className="hover:text-blue-500">
+                        <Link to="/" className={`hover:text-blue-500 ${pathname === "/" ? "text-blue-600 font-semibold" : ""}`}>
                             Home
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#search" className="hover:text-blue-500">
+                        <Link to="/search" className={`hover:text-blue-500 ${pathname === "/search" ? "text-blue-600 font-semibold" : ""}`}>
                             Search
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#about" className="hover:text-blue-500">
-                            About
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
