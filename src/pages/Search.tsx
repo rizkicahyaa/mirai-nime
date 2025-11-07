@@ -29,7 +29,7 @@ const Search: React.FC = () => {
 
     return (
         <div className="py-12 px-6 max-w-6xl mx-auto">
-            <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">🔎 Cari Anime</h1>
+            <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Cari Anime</h1>
 
             <div className="flex justify-center mb-8">
                 <input type="text" placeholder="Masukkan nama anime..." className="border border-gray-300 rounded-l-lg p-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-400" value={query} onChange={(e) => setQuery(e.target.value)} onKeyDown={(e) => e.key === "Enter" && searchAnime()} />

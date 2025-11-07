@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import HeroSection from "../components/HeroSection";
 import AnimeCard from "../components/AnimeCard";
 
 interface Anime {
@@ -29,19 +30,22 @@ const Home: React.FC = () => {
     }, []);
 
     return (
-        <div className="py-12 px-6 max-w-6xl mx-auto">
-            <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">🔥 Rekomendasi Anime Terbaik</h1>
+        <>
+            <HeroSection />
+            <div className="py-12 px-6 max-w-6xl mx-auto">
+                <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Rekomendasi Anime Terbaik</h1>
 
-            {loading ? (
-                <p className="text-center text-gray-500">Memuat data anime...</p>
-            ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-                    {animeList.map((anime) => (
-                        <AnimeCard key={anime.mal_id} anime={anime} />
-                    ))}
-                </div>
-            )}
-        </div>
+                {loading ? (
+                    <p className="text-center text-gray-500">Memuat data anime...</p>
+                ) : (
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+                        {animeList.map((anime) => (
+                            <AnimeCard key={anime.mal_id} anime={anime} />
+                        ))}
+                    </div>
+                )}
+            </div>
+        </>
     );
 };
 
