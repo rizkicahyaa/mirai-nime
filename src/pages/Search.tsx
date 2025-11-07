@@ -41,7 +41,7 @@ const Search: React.FC = () => {
             {loading ? (
                 <p className="text-center text-gray-500">Sedang mencari...</p>
             ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 items-start">
                     {animeList.map((anime) => (
                         <AnimeCard key={anime.mal_id} anime={anime} />
                     ))}
