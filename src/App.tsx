@@ -6,6 +6,7 @@ import Genres from "./pages/Genres";
 import GenreAnime from "./pages/GenreAnime";
 import Search from "./pages/Search";
 import Footer from "./components/Footer";
+import AnimeDetail from "./pages/AnimeDetail";
 
 function App() {
     return (
@@ -17,8 +18,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/search" element={<Search />} />
-                        <Route path="/genres" element={<Genres />} />
-                        <Route path="/genre/:id" element={<GenreAnime />} />
+                        <Route path="/anime/:id" element={<AnimeDetail />} />
                     </Routes>
                 </main>
 
