@@ -2,8 +2,6 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Genres from "./pages/Genres";
-import GenreAnime from "./pages/GenreAnime";
 import Search from "./pages/Search";
 import Footer from "./components/Footer";
 import AnimeDetail from "./pages/AnimeDetail";
