@@ -40,20 +40,32 @@ const Search: React.FC = () => {
 
     return (
         <div className="py-12 px-6 max-w-6xl mx-auto min-h-screen">
-            <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Cari Anime</h1>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg">Cari Anime</h1>
 
-            <div className="flex justify-center mb-8">
-                <input type="text" placeholder="Masukkan nama anime..." className="border border-gray-300 rounded-l-lg p-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-400" value={query} onChange={(e) => setQuery(e.target.value)} onKeyDown={(e) => e.key === "Enter" && searchAnime()} />
-                <button onClick={searchAnime} className="bg-blue-500 text-white px-4 rounded-r-lg hover:bg-blue-600 transition">
-                    Cari
-                </button>
+            <div className="flex justify-center mb-10">
+                <div className="flex items-center backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl overflow-hidden shadow-2xl shadow-purple-500/20">
+                    <input 
+                        type="text" 
+                        placeholder="Masukkan nama anime..." 
+                        className="bg-transparent text-white placeholder-white/50 rounded-l-xl p-3 w-72 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:bg-white/5 transition-all duration-300" 
+                        value={query} 
+                        onChange={(e) => setQuery(e.target.value)} 
+                        onKeyDown={(e) => e.key === "Enter" && searchAnime()} 
+                    />
+                    <button 
+                        onClick={searchAnime} 
+                        className="bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-900 font-semibold px-6 py-3 rounded-r-xl hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 shadow-lg shadow-amber-500/50 hover:shadow-xl hover:shadow-amber-500/60"
+                    >
+                        Cari
+                    </button>
+                </div>
             </div>
 
             {loading ? (
-                <p className="text-center text-gray-500">Sedang mencari...</p>
+                <p className="text-center text-white/60 text-lg">Sedang mencari...</p>
             ) : (
                 <>
-                    {filteredCount > 0 && <p className="text-center text-xs text-gray-500 mb-4">{filteredCount} hasil tidak ditampilkan karena mengandung konten dewasa.</p>}
+                    {filteredCount > 0 && <p className="text-center text-xs text-white/50 mb-4 backdrop-blur-sm bg-white/5 border border-white/10 rounded-lg px-4 py-2 inline-block">{filteredCount} hasil tidak ditampilkan karena mengandung konten dewasa.</p>}
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 items-start">
                         {animeList.map((anime) => (
@@ -61,7 +73,7 @@ const Search: React.FC = () => {
                         ))}
                     </div>
 
-                    {!loading && animeList.length === 0 && <p className="text-center text-gray-400 mt-6">Masukkan nama anime untuk mulai mencari.</p>}
+                    {!loading && animeList.length === 0 && <p className="text-center text-white/50 mt-8 text-lg">Masukkan nama anime untuk mulai mencari.</p>}
                 </>
             )}
         </div>

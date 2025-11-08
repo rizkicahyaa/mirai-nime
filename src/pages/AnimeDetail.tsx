@@ -46,62 +46,65 @@ const AnimeDetail: React.FC = () => {
 
     if (loading) {
         return (
-            <div className="flex justify-center items-center min-h-screen bg-gray-100">
-                <p className="text-gray-600 text-lg">Loading...</p>
+            <div className="flex justify-center items-center min-h-screen">
+                <p className="text-white/60 text-lg">Loading...</p>
             </div>
         );
     }
 
     if (!anime) {
         return (
-            <div className="flex justify-center items-center min-h-screen bg-gray-100">
-                <p className="text-gray-600 text-lg">Anime tidak ditemukan.</p>
+            <div className="flex justify-center items-center min-h-screen">
+                <p className="text-white/60 text-lg">Anime tidak ditemukan.</p>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 py-10 px-6">
-            <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="min-h-screen py-10 px-6">
+            <div className="max-w-5xl mx-auto backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl shadow-purple-500/20 overflow-hidden">
                 <div className="md:flex">
-                    <img src={anime.images.jpg.image_url} alt={anime.title} className="w-full md:w-1/3 object-cover" />
-                    <div className="p-6 md:w-2/3">
-                        <h1 className="text-3xl font-bold text-blue-600 mb-3">{anime.title}</h1>
+                    <div className="relative w-full md:w-1/3 overflow-hidden">
+                        <img src={anime.images.jpg.image_url} alt={anime.title} className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-purple-900/30"></div>
+                    </div>
+                    <div className="p-8 md:w-2/3 bg-gradient-to-br from-white/10 to-white/5">
+                        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 bg-clip-text text-transparent mb-4 drop-shadow-lg">{anime.title}</h1>
 
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <div className="flex flex-wrap gap-2 mb-6">
                             {anime.genres && anime.genres.length > 0 ? (
                                 anime.genres.map((genre) => (
-                                    <span key={genre.mal_id} className="bg-blue-100 text-blue-600 text-xs font-semibold px-3 py-1 rounded-full">
+                                    <span key={genre.mal_id} className="backdrop-blur-sm bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-semibold px-4 py-1.5 rounded-full shadow-lg">
                                         {genre.name}
                                     </span>
                                 ))
                             ) : (
-                                <span className="text-gray-500 text-sm">No genres available</span>
+                                <span className="text-white/50 text-sm">No genres available</span>
                             )}
                         </div>
 
-                        <p className="text-gray-700 mb-4 text-justify">{anime.synopsis}</p>
+                        <p className="text-white/80 mb-6 text-justify leading-relaxed">{anime.synopsis}</p>
 
-                        <div className="grid grid-cols-2 gap-4 text-gray-800">
-                            <p>
-                                <span className="font-semibold">Type:</span> {anime.type || "N/A"}
+                        <div className="grid grid-cols-2 gap-4 mb-6 backdrop-blur-sm bg-white/5 border border-white/10 rounded-xl p-4">
+                            <p className="text-white/90">
+                                <span className="font-semibold text-amber-300">Type:</span> <span className="text-white/70">{anime.type || "N/A"}</span>
                             </p>
-                            <p>
-                                <span className="font-semibold">Episodes:</span> {anime.episodes || "?"}
+                            <p className="text-white/90">
+                                <span className="font-semibold text-amber-300">Episodes:</span> <span className="text-white/70">{anime.episodes || "?"}</span>
                             </p>
-                            <p>
-                                <span className="font-semibold">Status:</span> {anime.status || "Unknown"}
+                            <p className="text-white/90">
+                                <span className="font-semibold text-amber-300">Status:</span> <span className="text-white/70">{anime.status || "Unknown"}</span>
                             </p>
-                            <p>
-                                <span className="font-semibold">Rating:</span> {anime.score !== null && anime.score !== undefined ? anime.score : "N/A"}
+                            <p className="text-white/90">
+                                <span className="font-semibold text-amber-300">Rating:</span> <span className="text-amber-300 font-semibold">{anime.score !== null && anime.score !== undefined ? anime.score : "N/A"}</span>
                             </p>
                         </div>
 
-                        <div className="mt-6 flex gap-3">
-                            <Link to="/" className="inline-block bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition">
+                        <div className="mt-6 flex gap-4">
+                            <Link to="/" className="inline-block bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-900 font-semibold px-6 py-2.5 rounded-xl hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 shadow-lg shadow-amber-500/50 hover:shadow-xl hover:shadow-amber-500/60 hover:scale-105 transform">
                                 Kembali
                             </Link>
-                            <a href={`https://myanimelist.net/anime/${anime.mal_id}`} target="_blank" rel="noopener noreferrer" className="inline-block bg-gray-100 text-blue-600 border border-blue-300 px-5 py-2 rounded-lg hover:bg-gray-200 transition">
+                            <a href={`https://myanimelist.net/anime/${anime.mal_id}`} target="_blank" rel="noopener noreferrer" className="inline-block backdrop-blur-sm bg-white/10 text-white border border-white/20 px-6 py-2.5 rounded-xl hover:bg-white/20 hover:border-amber-400/50 transition-all duration-300 shadow-lg hover:shadow-xl">
                                 Lihat di MyAnimeList
                             </a>
                         </div>
