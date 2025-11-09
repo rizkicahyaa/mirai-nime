@@ -20,6 +20,11 @@ const Navbar: React.FC = () => {
                             Search
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/about" className={`relative transition-all duration-300 hover:text-amber-300 ${pathname === "/about" ? "text-amber-400 font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-amber-400 after:to-yellow-300" : ""}`}>
+                            About
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </nav>
