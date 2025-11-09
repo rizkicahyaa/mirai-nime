@@ -5,7 +5,7 @@ const Navbar: React.FC = () => {
     const { pathname } = useLocation();
 
     return (
-        <nav className="backdrop-blur-xl bg-white/10 border-b border-white/20 shadow-2xl">
+        <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/10 border-b border-white/20 shadow-2xl">
             <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent drop-shadow-lg">MiraiNime</h1>
 
